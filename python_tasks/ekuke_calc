@@ -1,0 +1,102 @@
+print(""" Welcome to Ekuke Calculator 🆓 🤖 📲
+
+MENU:
+You can perform:
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division {1. float division, 2. floor division, 3. modulus} 
+5. Exponential
+6. Show Last Operation
+7. Show All Previous Operations
+8. Exit
+""")
+
+history = []
+last_operation = ""
+
+while True:
+    choice = int(input('Select an option to run operation: '))
+
+    if choice == 1:
+        print("➕ Addition selected")
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        result = num1 + num2
+        last_operation = f"{num1} + {num2} = {result}"
+        history.append(last_operation)
+        print(last_operation)
+
+    elif choice == 2:
+        print("➖ Subtraction selected")
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        result = num1 - num2
+        last_operation = f"{num1} - {num2} = {result}"
+        history.append(last_operation)
+        print(last_operation)
+
+    elif choice == 3:
+        print("✖️ Multiplication selected")
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+        result = num1 * num2
+        last_operation = f"{num1} * {num2} = {result}"
+        history.append(last_operation)
+        print(last_operation)
+
+    elif choice == 4:
+        print("➗ Division selected")
+        div_type = int(input('''Choose:
+        1. Float division (/)
+        2. Floor division (//)
+        3. Modulus (%)
+        '''))
+
+        num1 = float(input("Enter first number: "))
+        num2 = float(input("Enter second number: "))
+
+        if div_type == 1:
+            result = num1 / num2
+            last_operation = f"{num1} / {num2} = {result:.2f}"
+        elif div_type == 2:
+            result = num1 // num2
+            last_operation = f"{num1} // {num2} = {result:.2f}"
+        elif div_type == 3:
+            result = num1 % num2
+            last_operation = f"{num1} % {num2} = {result}"
+        else:
+            print("Invalid division option")
+            continue
+
+        history.append(last_operation)
+        print(last_operation)
+
+    elif choice == 5:
+        print("🧠 Exponential selected")
+        base = float(input("Enter base number: "))
+        exp = float(input("Enter exponent: "))
+        result = base ** exp
+        last_operation = f"{base} ** {exp} = {result:.2f}"
+        history.append(last_operation)
+        print(last_operation)
+
+    elif choice == 6:
+        print("🕒 Last Operation:")
+        print(last_operation if last_operation else "No operations yet.")
+
+    elif choice == 7:
+        print("📜 Operation History:")
+        if history:
+            for op in history:
+                print(op)
+        else:
+            print("No history yet.")
+
+    elif choice == 8:
+        print("Goodbye from Ekuke calculator! 👋")
+        break
+
+    else:
+        print("Invalid option, try again.")
+
