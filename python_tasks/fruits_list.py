@@ -49,3 +49,10 @@ print(fruits)
 print(len(fruits))
 print('kiwi' in fruits)
 
+
+
+#5. Loops
+
+for item in fruits:
+    print(item)
+
