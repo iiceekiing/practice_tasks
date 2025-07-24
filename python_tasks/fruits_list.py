@@ -44,4 +44,8 @@ print(fruits)
 fruits.remove('kiwi') # Removes by value
 print(fruits)
 
+#4. Length and Existence
+
+print(len(fruits))
+print('kiwi' in fruits)
 
